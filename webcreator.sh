@@ -11,13 +11,13 @@ mkdir /var/www/$SITE
 mkdir /var/www/$SITE/logs
 touch /var/www/$SITE/logs/error.log
 touch /var/www/$SITE/logs/access.log
-sudo cp /var/www/initial/* /var/www/$SITE
+cp /var/www/initial/* /var/www/$SITE
 
 echo "Setting the rights for the webroot"
-sudo chown -R www-data:www-data /var/www/$SITE
+chown -R www-data:www-data /var/www/$SITE
 
 # 2. Creating Apache configuration file for virtual host
-echo "Creating the Apache configuartion file for the virtual host"
+echo "Creating the Apache configuration file for the virtual host"
 cd /etc/apache2/sites-available
 cat > $SITE.conf << EOF
 <VirtualHost *:80>
@@ -36,7 +36,7 @@ EOF
 # 3. Apache enable and reload
 echo "Apache enable and reload"
 a2ensite $SITE
-service apache reload
+service apache2 reload
 
 # 4. Setup Letsencrypt SSL certificate
 echo "Setting up Letsencrypt SSL certificate"
