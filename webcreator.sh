@@ -42,3 +42,10 @@ service apache reload
 echo "Setting up Letsencrypt SSL certificate"
 cd /opt/letsencrypt
 ./letsencrypt-auto --apache -d $SITE -d www.$SITE
+
+echo ""
+echo "-------------------------------------------------------------"
+echo "Finished!"
+echo "If you set up DNS correctly you should be able to open"
+echo "$SITE in a browser!"
+echo "Enjoy!"
